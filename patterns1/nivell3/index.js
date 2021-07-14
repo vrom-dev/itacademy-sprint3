@@ -1,6 +1,9 @@
+const EventEmitter = require('events')
+
 class Observable  {
   constructor() {
     this.observers = []
+    this.emitter = new EventEmitter()
   }
 
   subscribe(o) {
@@ -11,8 +14,8 @@ class Observable  {
     this.observers = this.observers.filter(observer => observer !== o)
   }
 
-  notify(model) {
-    this.observers.forEach(observer => observer.notify(model))
+  addListener(name, cb) {
+    this.emitter.on(name, cb)
   }
 }
 
@@ -20,11 +23,13 @@ class Topic extends Observable {
   constructor() {
     super()
     this.messages = []
+    this.addListener('setMessage', (model) => this.observers.forEach(observer => observer.notify(model)))
   }
   setMessage(msg, user) {
     const messageToAdd = {user, message: msg}
     this.messages = [...this.messages, messageToAdd]
-    this.notify(messageToAdd)
+    console.log('New message added!')
+    this.emitter.emit('setMessage', messageToAdd)
   }
 }
 
