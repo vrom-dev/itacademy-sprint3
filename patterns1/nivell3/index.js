@@ -28,10 +28,7 @@ class Topic extends Observable {
   setMessage(msg, user) {
     const messageToAdd = {user, message: msg}
     this.messages = [...this.messages, messageToAdd]
-<<<<<<< HEAD
     console.log('New message added!')
-=======
->>>>>>> 5003f474d1b288b7249d0d784f711c4a6f88a011
     this.emitter.emit('setMessage', messageToAdd)
   }
 }
