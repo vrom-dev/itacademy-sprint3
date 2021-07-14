@@ -13,15 +13,14 @@ const reverseText = str =>
 // Read and reverse contents of text files in a directory
 const readAndReverse = async () => {
   const files = await readdir(inbox)
-
-  Promise.all(files.map(async (file) => {
+  await Promise.all(files.map(async (file) => {
     const inputFile = join(inbox, file)
     const outputFile = join(outbox, file)
     const content = await readFile(inputFile, 'utf-8')
     await writeFile(outputFile, reverseText(content))
     console.log(`${file} was successfully saved in the outbox!`)
   }))
-    .catch(error => console.log)
-
+    .catch(error => console.log(error))
 }
+
 readAndReverse()
