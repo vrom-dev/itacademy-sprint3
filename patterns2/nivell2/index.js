@@ -12,7 +12,7 @@ const Product = function (name, price, currency) {
 const DecoratedProduct = function (product) {
   const { name, price, currency } = product
   const converterKeys= Object.keys(converter)
-  const conversionRate = converterKeys.find(rate => rate.includes(`${currency}_EUR`))
+  const conversionRate = converterKeys.find(rate => rate === `${currency}_EUR`)
   const priceInEUR = Math.round(price * converter[conversionRate] * 100)/100 
   
   this.name = name

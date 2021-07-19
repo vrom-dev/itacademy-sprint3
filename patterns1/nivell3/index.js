@@ -28,7 +28,7 @@ class Topic extends Observable {
   setMessage(msg, user) {
     const messageToAdd = {user, message: msg}
     this.messages = [...this.messages, messageToAdd]
-    console.log('New message added!')
+    console.log(`New message added! Message: ${msg}`)
     this.emitter.emit('setMessage', messageToAdd)
   }
 }
@@ -52,6 +52,7 @@ const han = new User('han')
 sports.subscribe(yoda)
 sports.subscribe(han)
 sports.setMessage('Hola Mundo', yoda)
+
 sports.unsuscribe(han)
 sports.setMessage('Hello World', han)
 
