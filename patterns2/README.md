@@ -12,4 +12,5 @@
 - Creu una petita aplicació que calculi el cost de N articles al preu X, aplicant diverses conversions emprant el Decorator del punt anterior.
 ## Nivell 3
 ### Exercici 1 - Publisher / Subscriber
-- Utilitzant RabbitMQ com a element imprescindible, creï una queue on una classe Publisher publiqui missatges que siguin llegits per una classe Subscriber. - Traci per consola l'emissió i recepció de cada missatge en consoles diferents.
+- Utilitzant RabbitMQ com a element imprescindible, creï una queue on una classe Publisher publiqui missatges que siguin llegits per una classe Subscriber. 
+- Traci per consola l'emissió i recepció de cada missatge en consoles diferents.
