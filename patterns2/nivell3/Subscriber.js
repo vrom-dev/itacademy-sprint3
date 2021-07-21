@@ -3,7 +3,6 @@
 const amqp = require('amqplib')
 
 class Subscriber {
-
     async init() {
         try {
             this.connection = await amqp.connect('amqp://localhost')
