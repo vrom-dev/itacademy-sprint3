@@ -1,10 +1,14 @@
 const { Product } = require('./Product')
-const { decorate } = require('./Decorator')
+const { Decorator } = require('./Decorator')
 
+//Decorated product
+const macbookAir = Decorator(new Product('macbook air m1 256gb', 1124.90, 'USD'))
 
-const macbookAirM1 = new Product('macbook air m1 256gb', 1124.90, 'USD')
-const macbookProM1 = new Product('macbook pro m1 256gb', 149500, 'JPY')
+//Not decorated product
+const macbookPro = new Product('macbook pro m1 256gb', 149500, 'JPY')
 
+macbookAir
+  .printInfo()
 
-decorate.apply(macbookAirM1).printInfo()
-macbookProM1.printInfo()
+macbookPro
+  .printInfo()
